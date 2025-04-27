@@ -3,7 +3,7 @@
 // Definição da estrutura para armazenar os dados de uma carta
 struct CartaSuperTrunfo {
   char estado;                  // Letra de A a H
-  char codigo[50];              // Exemplo: A01 -- Se digitar o número ele pode ser visto como binário, caso escreva com 0 no inicio;
+  char codigo[50];              // Exemplo: A01 -- Se digitar o número 0, o compilador pode tratar o input como binário.
   char nomeCidade[50];          // Nome da cidade
   int populacao;                // Número de habitantes
   float area;                   // Área em km²
@@ -11,7 +11,7 @@ struct CartaSuperTrunfo {
   int pontosTuristicos;         // Número de pontos turísticos
   float densidadePopulacional;  // Densidade populacional em hab/km²
   float pibPerCapita;           // PIB per capita em reais
-  float superPoder;             // Valor calculado para determinar o poder... olha eu acho idiota a parte do super. 
+  float superPoder;             // Valor calculado para determinar o poder... Por razões de balanceamento eu alterei a formula.
 };
 
 int main() {
@@ -79,6 +79,9 @@ int main() {
   system("clear");
 
 /*
+
+// Estrutura para teste rápido
+
   carta1.populacao = 12324000;
   carta1.area = 1521.11;
   carta1.pib = 1.24;

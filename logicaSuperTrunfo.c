@@ -31,7 +31,7 @@ int main() {
     printf("Código (ex: A01): ");
     scanf("%s", codigo1);
     printf("População: ");
-    scanf("%d", &populacao1);
+    scanf("%lu", &populacao1);
     printf("Área (em km²): ");
     scanf("%f", &area1);
     printf("PIB (em bilhões): ");
@@ -46,7 +46,7 @@ int main() {
     printf("Código (ex: B02): ");
     scanf("%s", codigo2);
     printf("População: ");
-    scanf("%d", &populacao2);
+    scanf("%lu", &populacao2);
     printf("Área (em km²): ");
     scanf("%f", &area2);
     printf("PIB (em bilhões): ");
@@ -74,7 +74,7 @@ int main() {
     // Exibição dos dados da primeira carta
     printf("Dados da primeira carta:\n");
     printf("Código: %s\n", codigo1);
-    printf("População: %d\n", populacao1);
+    printf("População: %lu\n", populacao1);
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f bilhões\n", pib1);
     printf("Número de pontos turísticos: %d\n", pontosTuristicos1);
@@ -86,7 +86,7 @@ int main() {
     // Exibição dos dados da segunda carta
     printf("Dados da segunda carta:\n");
     printf("Código: %s\n", codigo2);
-    printf("População: %d\n", populacao2);
+    printf("População: %lu\n", populacao2);
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões\n", pib2);
     printf("Número de pontos turísticos: %d\n", pontosTuristicos2);
@@ -111,30 +111,45 @@ int main() {
 
         switch (opcao) {
             case 1:
-                printf("Vencedor da População: Carta %s\n", (populacao1 > populacao2) ? codigo1 : codigo2);
+                ((int) populacao1 == (int) populacao2)
+                    ? printf("As cartas possuem o mesmo valor de População. Resultado: Empate.\n")
+                    : printf("Vencedor da População: Carta %s\n", (populacao1 > populacao2) ? codigo1 : codigo2);
                 break;
             case 2:
-                printf("Vencedor da Área: Carta %s\n", (area1 > area2) ? codigo1 : codigo2);
+                (area1 == area2)
+                    ? printf("As cartas possuem o mesmo valor de Área. Resultado: Empate.\n")
+                    : printf("Vencedor da Área: Carta %s\n", (area1 > area2) ? codigo1 : codigo2);
                 break;
             case 3:
-                printf("Vencedor do PIB: Carta %s\n", (pib1 > pib2) ? codigo1 : codigo2);
+                (pib1 == pib2)
+                    ? printf("As cartas possuem o mesmo valor de PIB. Resultado: Empate.\n")
+                    : printf("Vencedor do PIB: Carta %s\n", (pib1 > pib2) ? codigo1 : codigo2);
                 break;
             case 4:
-                printf("Vencedor dos Pontos Turísticos: Carta %s\n", (pontosTuristicos1 > pontosTuristicos2) ? codigo1 : codigo2);
+                (pontosTuristicos1 == pontosTuristicos2)
+                    ? printf("As cartas possuem o mesmo número de Pontos Turísticos. Resultado: Empate.\n")
+                    : printf("Vencedor dos Pontos Turísticos: Carta %s\n", (pontosTuristicos1 > pontosTuristicos2) ? codigo1 : codigo2);
                 break;
             case 5:
-                printf("Vencedor da Densidade Populacional: Carta %s\n", (densidadePopulacional1 < densidadePopulacional2) ? codigo1 : codigo2);
+                (densidadePopulacional1 == densidadePopulacional2)
+                    ? printf("As cartas possuem a mesma Densidade Populacional. Resultado: Empate.\n")
+                    : printf("Vencedor da Densidade Populacional: Carta %s\n", (densidadePopulacional1 < densidadePopulacional2) ? codigo1 : codigo2);
                 break;
             case 6:
-                printf("Vencedor do PIB per Capita: Carta %s\n", (pibPerCapita1 > pibPerCapita2) ? codigo1 : codigo2);
+                (pibPerCapita1 == pibPerCapita2)
+                    ? printf("As cartas possuem o mesmo PIB per Capita. Resultado: Empate.\n")
+                    : printf("Vencedor do PIB per Capita: Carta %s\n", (pibPerCapita1 > pibPerCapita2) ? codigo1 : codigo2);
                 break;
             case 7:
-                printf("Vencedor do Super Poder: Carta %s\n", (superPoder1 > superPoder2) ? codigo1 : codigo2);
+                (superPoder1 ==  superPoder2)
+                    ? printf("As cartas possuem o mesmo valor de Super Poder. Resultado: Empate.\n")
+                    : printf("Vencedor do Super Poder: Carta %s\n", (superPoder1 > superPoder2) ? codigo1 : codigo2);
                 break;
             default:
                 printf("Opção inválida.\n");
                 break;
         }
+        
 
         printf("\nDeseja comparar outro atributo? (s/n): ");
         scanf(" %c", &continuar); // Espaço antes do %c para limpar buffer

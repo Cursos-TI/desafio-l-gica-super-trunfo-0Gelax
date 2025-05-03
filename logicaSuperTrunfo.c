@@ -1,6 +1,10 @@
 #include <stdio.h>
 
 int main() {
+    //Variáveis de controle
+    int opcao;
+    char continuar;
+    
     // Variáveis da primeira carta
     char codigo1[4];
     unsigned long int populacao1;
@@ -93,13 +97,49 @@ int main() {
     printf("\n______________________________________________________________\n");
 
     // Comparações
-    printf("Vencedor da População: Carta %s\n", (populacao1 > populacao2) ? codigo1 : codigo2);
-    printf("Vencedor da Área: Carta %s\n", (area1 > area2) ? codigo1 : codigo2);
-    printf("Vencedor do PIB: Carta %s\n", (pib1 > pib2) ? codigo1 : codigo2);
-    printf("Vencedor dos Pontos Turísticos: Carta %s\n", (pontosTuristicos1 > pontosTuristicos2) ? codigo1 : codigo2);
-    printf("Vencedor da Densidade Populacional: Carta %s\n", (densidadePopulacional1 < densidadePopulacional2) ? codigo1 : codigo2);
-    printf("Vencedor do PIB per Capita: Carta %s\n", (pibPerCapita1 > pibPerCapita2) ? codigo1 : codigo2);
-    printf("Vencedor do Super Poder: Carta %s\n", (superPoder1 > superPoder2) ? codigo1 : codigo2);
+    do {
+        printf("\n--- Menu de Comparação ---\n");
+        printf("1. População\n");
+        printf("2. Área\n");
+        printf("3. PIB\n");
+        printf("4. Pontos Turísticos\n");
+        printf("5. Densidade Populacional\n");
+        printf("6. PIB per Capita\n");
+        printf("7. Super Poder\n");
+        printf("Escolha um atributo para comparar (1-7): ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("Vencedor da População: Carta %s\n", (populacao1 > populacao2) ? codigo1 : codigo2);
+                break;
+            case 2:
+                printf("Vencedor da Área: Carta %s\n", (area1 > area2) ? codigo1 : codigo2);
+                break;
+            case 3:
+                printf("Vencedor do PIB: Carta %s\n", (pib1 > pib2) ? codigo1 : codigo2);
+                break;
+            case 4:
+                printf("Vencedor dos Pontos Turísticos: Carta %s\n", (pontosTuristicos1 > pontosTuristicos2) ? codigo1 : codigo2);
+                break;
+            case 5:
+                printf("Vencedor da Densidade Populacional: Carta %s\n", (densidadePopulacional1 < densidadePopulacional2) ? codigo1 : codigo2);
+                break;
+            case 6:
+                printf("Vencedor do PIB per Capita: Carta %s\n", (pibPerCapita1 > pibPerCapita2) ? codigo1 : codigo2);
+                break;
+            case 7:
+                printf("Vencedor do Super Poder: Carta %s\n", (superPoder1 > superPoder2) ? codigo1 : codigo2);
+                break;
+            default:
+                printf("Opção inválida.\n");
+                break;
+        }
+
+        printf("\nDeseja comparar outro atributo? (s/n): ");
+        scanf(" %c", &continuar); // Espaço antes do %c para limpar buffer
+
+    } while (continuar == 's' || continuar == 'S');
 
     return 0;
 }
